@@ -35,7 +35,10 @@ button{
 }
 
 .cell{
-    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
     border: 20px solid black;
     height: 200px;
     width: 200px;

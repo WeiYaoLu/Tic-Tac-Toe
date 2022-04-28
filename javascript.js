@@ -23,10 +23,10 @@ const gamePlay = (() => {
         else p = 1;
         if(idx === ''){
             board.splice(`${div.id}`,1,players[p].tile);
-        } 
+        }
         console.log(board);
-        const { display } = updateDisplay;
-        //update();
+        const { update } = updateDisplay;
+        update();
         check();
     }
 
@@ -46,8 +46,8 @@ const updateDisplay = (() => {
     const { board } = gameBoard;
     const { setup } = gamePlay;
 
-    let cells = document.querySelectorAll('.cells');
     function update() {
+        let cells = document.querySelectorAll('.cell');
         for (let i = 0; i < cells.length; i++) {
             cells[i].textContent = board[i];
         }
@@ -61,6 +61,7 @@ const updateDisplay = (() => {
         setup();
         update();
     });
+    
     return { update };
 })();
 
