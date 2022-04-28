@@ -34,6 +34,10 @@ button{
     grid-template-rows: repeat(3, 200px);
 }
 
+h2 {
+    font-size: 30px;
+}
+
 .cell{
     display: flex;
     justify-content: center;

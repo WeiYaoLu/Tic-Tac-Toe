@@ -11,8 +11,6 @@ const gamePlay = (() => {
     const cells = document.querySelectorAll('.cell');
     const { board } = gameBoard;
 
-    let tile = '';
-    let winner = '';
     var p = 0;
 
     const place = (e) => {
@@ -35,8 +33,22 @@ const gamePlay = (() => {
             cells[i].addEventListener("click", place);
         }
     }
+    function stop() {
+        for (let i = 0; i < cells.length; i++){
+            cells[i].removeEventListener('click',place);
+        }
+    }
     const check = () => {
-
+        const announce = document.querySelector('.announcement');
+        if (board[0] === board[1] && board[1] === board[2] && board[0] !== '') {stop(); announce.textContent= `${players[p].name} Wins!`; return;} 
+        if (board[3] === board[4] && board[4] === board[5] && board[3] !== '') {stop(); announce.textContent= `${players[p].name} Wins!`; return;} 
+        if (board[6] === board[7] && board[7] === board[8] && board[6] !== '') {stop(); announce.textContent= `${players[p].name} Wins!`; return;}
+        if (board[0] === board[3] && board[3] === board[6] && board[0] !== '') {stop(); announce.textContent= `${players[p].name} Wins!`; return;}
+        if (board[1] === board[4] && board[4] === board[7] && board[1] !== '') {stop(); announce.textContent= `${players[p].name} Wins!`; return;}
+        if (board[2] === board[5] && board[5] === board[8] && board[2] !== '') {stop(); announce.textContent= `${players[p].name} Wins!`; return;}
+        if (board[0] === board[4] && board[4] === board[8] && board[0] !== '') {stop(); announce.textContent= `${players[p].name} Wins!`; return;}
+        if (board[2] === board[4] && board[4] === board[6] && board[2] !== '') {stop(); announce.textContent= `${players[p].name} Wins!`; return;}
+        if (board[0] !== '' && board[1] !== '' && board[2] !== '' && board[3] !== '' && board[4] !== '' && board[5] !== '' && board[6] !== '' && board[7] !== '' && board[8] !== '') {announce.textContent = "DRAW!"};
     }
     setup();
     return { setup };
@@ -58,6 +70,8 @@ const updateDisplay = (() => {
         for (let i = 0; i < board.length; i++) {
             board[i] = '';
         }
+        const announce = document.querySelector('.announcement');
+        announce.textContent = " ";
         setup();
         update();
     });
@@ -65,6 +79,6 @@ const updateDisplay = (() => {
     return { update };
 })();
 
-const p1 = Player("Player1", "O");
-const p2 = Player("Player2", "X");
+const p1 = Player("Player 1", "O");
+const p2 = Player("Player 2", "X");
 let players = [p1, p2];
