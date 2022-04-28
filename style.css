@@ -1,0 +1,42 @@
+body{
+    background-color: slategray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    font-size: 36px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button{
+    padding: 10px 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.container{
+    max-width: 700px;
+    max-width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid{
+    width: 700px;
+    height: 700px;
+    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(3,200px);
+    grid-template-rows: repeat(3, 200px);
+}
+
+.cell{
+    border: 20px solid black;
+    height: 200px;
+    width: 200px;
+    background-color: white;
+}
